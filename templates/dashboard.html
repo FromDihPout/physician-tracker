@@ -1,0 +1,9 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+	<h1>Dashboard</h1>
+	<h1><small> Welcome {{session.username}}</small></h1>
+	<a class="btn btn-primary" href="/add_physician">Add Physician</a>
+	<a class="btn btn-primary" href="/add_clinic">Add Clinic</a>
+	<hr>
+{% endblock %}

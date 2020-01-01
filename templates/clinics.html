@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+	<h1>Clinics</h1>
+	<table class="table table-striped">
+		<tr>
+			<th>Clinic Name</th>
+			<th>Address</th>
+			<th>Phone</th>
+			<th>Last Updated</th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
+		{% for clinic in clinics %}
+			<tr>
+				<td>{{clinic.name}}</td>
+				<td>{{clinic.address}}</td>
+				<td>{{clinic.phone}}</td>
+				<td>{{clinic.lastUpdated}}</td>
+				<td><a href="edit_clinic/{{clinic.id}}" class="btn btn-success pullright">Edit</a></td>
+				<td>
+					<form action="{{url_for('delete_clinic', id=clinic.id)}}" method="post">
+						<input type="hidden" name="_method" value="DELETE">
+						<input type="submit" value="Delete" class="btn btn-danger">
+					</form>
+				</td>
+			</tr>
+		{% endfor %}
+	</table>
+{% endblock %}
